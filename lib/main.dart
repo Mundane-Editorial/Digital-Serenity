@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
             textStyle: MaterialStateProperty.all<TextStyle>(
-              TextStyle(fontSize: 18.0, color: Colors.blueGrey),
+              const TextStyle(fontSize: 18.0, color: Colors.blueGrey),
             ),
           ),
         ),
@@ -29,58 +27,72 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // title: const Text('Digital Serenity'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 300,
-              width: 300,
-              child: Image.asset('assets/images/logo.png'),
+      appBar: AppBar(),
+      body: Stack(
+        children: [
+          Positioned(
+            top: 0,
+            left: 0,
+            child: SizedBox(
+              height: 250,
+              width: 250,
+              child: Image.asset(
+                'assets/images/Background.png',
+                fit: BoxFit.cover,
+              ),
             ),
-            Row(
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: SizedBox(
+              height: 250,
+              width: 250,
+              child: Transform.rotate(
+                angle: 3.14, // Rotate the image by 180 degrees
+                child: Image.asset(
+                  'assets/images/Background.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.25, // 25% of screen width
+                  height: 300,
+                  width: 300,
+                  child: Image.asset('assets/images/logo.png'),
                 ),
-                Expanded(
-                  flex: 2, // Takes 50% of the screen width
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('Button pressed');
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromRGBO(4, 35, 53, 1.0), // RGBA color
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0), // Set border radius
-                      ),
-                      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0), // Set padding
+                const SizedBox(height: 20), // Add spacing between the images and buttons
+                ElevatedButton(
+                  onPressed: () {
+                    print('Button pressed');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(4, 35, 53, 1.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
-                    child: Text('Continue', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,  color: Colors.white)), // Set font size
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                   ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.25, // 25% of screen width
+                  child: const Text(
+                    'Continue',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
