@@ -72,7 +72,12 @@ class MyHomePage extends StatelessWidget {
                   width: 300,
                   child: Image.asset('assets/images/logo.png'),
                 ),
-                const SizedBox(height: 20), // Add spacing between the images and buttons
+                const SizedBox(height: 10), // Add spacing between the logo image and the text
+                const Text(
+                  'Digital Serenity',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 20), // Add spacing between the text and the button
                 ElevatedButton(
                   onPressed: () {
                     print('Button pressed');
