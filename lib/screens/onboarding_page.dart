@@ -78,16 +78,24 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onTap;
   final double? width;
   final double? height;
-  const CustomButton({super.key, required this.title, required this.onTap, this.width, this.height});
+  final TextStyle? titleStyle;
+
+  const CustomButton({
+    super.key,
+    required this.title,
+    required this.onTap,
+    this.width,
+    this.height,
+    this.titleStyle,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.only(left: 60, top: 10, right: 20),
-        height:  height ?? 50,
-        width: width ??  MediaQuery.of(context).size.width * 0.45,
+        height: height ?? 50,
+        width: width ?? MediaQuery.of(context).size.width * 0.45,
         decoration: BoxDecoration(
           color: const Color.fromRGBO(4, 35, 53, 1.0),
           borderRadius: BorderRadius.circular(15),
@@ -99,18 +107,21 @@ class CustomButton extends StatelessWidget {
             ),
           ],
         ),
-        child: Text(
-          title,
-          style: GoogleFonts.robotoCondensed(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+        child: Center(
+          child: Text(
+            title,
+            style: GoogleFonts.robotoCondensed(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
     );
   }
 }
+
 
 //List<int> muList = [2,2,2,2,2,2];
 //List<int?> myList = [null , 2 null , 2 , null];
