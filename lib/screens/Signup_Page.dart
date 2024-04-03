@@ -126,10 +126,12 @@ class _SignupPageState extends State<SignupPage> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: TextFormField(
+                      obscureText: true,
                       controller: _passwordController,
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.only(left: 10),
+                      decoration: const InputDecoration(
+                        contentPadding: EdgeInsets.only(left: 10),
                         hintText: 'Password',
+                        hintStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                         focusedBorder: InputBorder.none,
                         border: InputBorder.none,
                       ),
@@ -142,7 +144,8 @@ class _SignupPageState extends State<SignupPage> {
                       },
                     ),
                   ),
-                  _isPasswordValid ? Text('') : Text('Password too short'),
+                  _isPasswordValid ? const Text('') : const Text('Password too short',
+                  style: TextStyle(color: CupertinoColors.destructiveRed),),
                   const SizedBox(height: 20),
                   CustomButton(
                     title: 'Sign Up',
