@@ -15,29 +15,12 @@ class OnboardingPage extends StatelessWidget {
           Positioned(
             top: 0,
             left: 0,
-            child: SizedBox(
-              height: 250,
-              width: 250,
-              child: SvgPicture.asset(
-                'assets/images/Background.svg',
-                fit: BoxFit.cover,
-              ),
-            ),
+            child: svgImageTop(),
           ),
           Positioned(
             bottom: 0,
             right: 0,
-            child: SizedBox(
-              height: 250,
-              width: 250,
-              child: Transform.rotate(
-                angle: 3.14,
-                child: SvgPicture.asset(
-                  'assets/images/Background.svg',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            child: svgImageBottom(),
           ),
           Center(
             child: Column(
@@ -122,6 +105,27 @@ class CustomButton extends StatelessWidget {
   }
 }
 
+Widget svgImageTop() {
+  return SizedBox(
+    height: 250,
+    width: 250,
+    child: SvgPicture.asset(
+      'assets/images/Background.svg',
+      fit: BoxFit.cover,
+    ),
+  );
+}
 
-//List<int> muList = [2,2,2,2,2,2];
-//List<int?> myList = [null , 2 null , 2 , null];
+Widget svgImageBottom(){
+  return SizedBox(
+    height: 250,
+    width: 250,
+    child: Transform.rotate(
+      angle: 3.14,
+      child: SvgPicture.asset(
+        'assets/images/Background.svg',
+        fit: BoxFit.cover,
+      ),
+    ),
+  );
+}

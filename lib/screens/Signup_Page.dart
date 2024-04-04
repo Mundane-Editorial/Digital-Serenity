@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
 
+import 'landingpage.dart';
+
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
 
@@ -46,29 +48,12 @@ class _SignupPageState extends State<SignupPage> {
           Positioned(
             top: 0,
             left: 0,
-            child: SizedBox(
-              height: 250,
-              width: 250,
-              child: SvgPicture.asset(
-                'assets/images/Background.svg',
-                fit: BoxFit.cover,
-              ),
-            ),
+            child: svgImageTop(),
           ),
           Positioned(
             bottom: 0,
             right: 0,
-            child: SizedBox(
-              height: 250,
-              width: 250,
-              child: Transform.rotate(
-                angle: 3.14,
-                child: SvgPicture.asset(
-                  'assets/images/Background.svg',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            child: svgImageBottom(),
           ),
           Center(
             child: Form(
@@ -152,6 +137,9 @@ class _SignupPageState extends State<SignupPage> {
                     onTap: () {
                       // if (_formKey.currentState!.validate())
                       const Text('Login pressed');
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => const LandingPage()),
+                      );
                     },
                   ),
                   const SizedBox(height: 20),
@@ -159,7 +147,7 @@ class _SignupPageState extends State<SignupPage> {
                     thickness: 1.5,
                     indent: 60,
                     endIndent: 60,
-                    color: Colors.indigo,
+                    color: Color.fromRGBO(83, 123, 143, 1.0),
                   ),
                   const SizedBox(height: 10),
                   Padding(
