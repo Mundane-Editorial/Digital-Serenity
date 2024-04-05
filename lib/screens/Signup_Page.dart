@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
-
-import 'landingpage.dart';
+import 'package:add_image_in_app/screens/landing_page.dart';
+import 'landing_page.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -233,3 +233,5 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 }
+
+

@@ -1,21 +1,28 @@
-import 'dart:ui';
-
+import 'package:add_image_in_app/screens/my_profile.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class My_Profile extends StatefulWidget {
-  const My_Profile({super.key});
+class LandingPage extends StatefulWidget {
+  const LandingPage({super.key});
 
   @override
-  State<My_Profile> createState() => _My_Profile();
+  State<LandingPage> createState() => _LandingPageState();
 }
 
-class _My_Profile extends State<My_Profile> {
+class _LandingPageState extends State<LandingPage> {
+  // final TabController _tabController = TabController(length: 3, vsync: this);
+
   @override
   Widget build(BuildContext context) {
+    return buildBody(context);
+  }
+
+  Scaffold buildBody(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: const Drawer(
+
+      ),
       body: Stack(
         children: [
           Positioned(
@@ -74,14 +81,42 @@ class _My_Profile extends State<My_Profile> {
                             ),
                           ],
                         ),
+                        child: const CircleAvatar(
+                          radius: 20,
+                          backgroundImage: AssetImage(
+                              'assets/images/avatar.jpg'),
+                        ),
                       ),
-                    ), //TODO: yaha pe avatar vgera lgana hai iske baad
+                    ),
                     const SizedBox(width: 20),
                   ],
                 ),
               ),
             ],
           ),
+          const SizedBox(height: 30),
+          // Container(
+          //   child: TabBar(
+          //     // controller: _tabController,
+          //     tabs: [
+          //       Tab(text: 'App Lock'),
+          //       Tab(text: 'Summary'),
+          //       Tab(text: 'Time Spent'),
+          //     ],
+          //   ),
+          // ),
+          // Container(
+          //   width: double.maxFinite,
+          //   height: 300,
+          //   child: TabBarView(
+          //     // controller: _tabController,
+          //     children: [
+          //       Text("hi"),
+          //       Text("hello"),
+          //       Text("hola"),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );
