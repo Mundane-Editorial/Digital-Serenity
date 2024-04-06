@@ -3,6 +3,9 @@ import 'dart:ui';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:google_fonts/google_fonts.dart';
 
 class My_Profile extends StatefulWidget {
   const My_Profile({super.key});
@@ -54,34 +57,50 @@ class _My_Profile extends State<My_Profile> {
                         );
                       },
                     ),
-                    const Spacer(),
-                    InkWell(
-                      onTap: () {
-                        // Navigate to MyProfileScreen
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const My_Profile()),
-
-                        );
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.5),
-                              spreadRadius: 1,
-                              // blurRadius: 2,
-                              offset: const Offset(0, 0),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ), //TODO: yaha pe avatar vgera lgana hai iske baad
                     const SizedBox(width: 20),
+
                   ],
                 ),
               ),
             ],
           ),
+      Center(
+        child:
+        Column(
+          children: [
+            SizedBox(height: MediaQuery.of(context).viewPadding.top + 100),
+            Container(
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    // color: Colors.black.withOpacity(0.5),
+                    color: Color.fromRGBO(15, 90, 147, 0.5),
+                    spreadRadius: 5,
+                    blurRadius: 1,
+                    offset: Offset(0, 0),
+                  ),
+                ],
+              ),
+              child: const CircleAvatar(
+                radius: 70,
+                backgroundImage: AssetImage(
+                    'assets/images/avatar.jpg'),
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Sant Xavier',
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+
+          ],
+        ),
+      )
+
         ],
       ),
     );
