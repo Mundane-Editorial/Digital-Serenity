@@ -85,7 +85,7 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
                           ],
                         ),
                         child: const CircleAvatar(
-                          radius: 20,
+                          radius: 15,
                           backgroundImage: AssetImage('assets/images/avatar.jpg'),
                         ),
                       ),

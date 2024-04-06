@@ -89,15 +89,15 @@ class _My_Profile extends State<MyProfile> {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: Color.fromRGBO(15, 90, 147, 0.5),
+                            color: Colors.grey,
                             spreadRadius: 5,
-                            blurRadius: 10,
+                            blurRadius: 2,
                             offset: Offset(0, 0),
                           ),
                         ],
                       ),
                       child: const CircleAvatar(
-                        radius: 70,
+                        radius: 90,
                         backgroundImage: AssetImage('assets/images/avatar.jpg'),
                       ),
                     ),
@@ -113,8 +113,10 @@ class _My_Profile extends State<MyProfile> {
                           radius: 15,
                           backgroundColor: Colors.grey,
                           child: IconButton(
-                            iconSize: 16,
-                            icon: const Icon(Icons.edit, color: Colors.black),
+                            iconSize: 15,
+                            icon: const Icon(
+                                Icons.edit,
+                                color: Colors.white),
                             onPressed: () {
                               // Handle edit action
                               Text('Edit pressed');
@@ -123,10 +125,8 @@ class _My_Profile extends State<MyProfile> {
                         ),
                       ),
                     ),
-
                   ],
                 ),
-
                 const SizedBox(height: 10),
                 const Text(
                   'Sant Xavier',
