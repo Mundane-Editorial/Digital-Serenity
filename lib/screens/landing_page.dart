@@ -1,5 +1,8 @@
 import 'dart:ui';
 
+import 'package:add_image_in_app/screens/guided_medatation.dart';
+import 'package:add_image_in_app/screens/help_and_support.dart';
+import 'package:add_image_in_app/screens/meditation_page.dart';
 import 'package:add_image_in_app/screens/my_profile.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +15,8 @@ class LandingPage extends StatefulWidget {
   State<LandingPage> createState() => _LandingPageState();
 }
 
-class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin {
+class _LandingPageState extends State<LandingPage>
+    with TickerProviderStateMixin {
   late TabController tabController;
 
   @override
@@ -28,7 +32,95 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
 
   Scaffold buildBody(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: Drawer(       //TODO : my Profile , About us, Focus mode, Feedback and Support, Guided meditation etc
+        shadowColor: Colors.grey,
+        elevation: 3,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromRGBO(255, 255, 255, 1),
+                    Color.fromRGBO(218, 233, 240, 0.85),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(
+                  color: Colors.lightBlueAccent,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('Home'),
+             leading: Icon(
+               Icons.home
+             ),
+              onTap: () {
+                // Handle item 1 tap
+                Navigator.push(context, MaterialPageRoute(builder: (Context) => LandingPage()),);
+              },
+            ),
+            ListTile(
+
+              leading: Icon(Icons.account_circle
+              ),
+              title: Text('My Profile'),
+              onTap: () {
+                // Handle item 1 tap
+                Navigator.push(context, MaterialPageRoute(builder: (Context) => MyProfile()),);
+              },
+            ),
+            ListTile(
+              title: Text('Meditation'),
+              leading: Icon(
+                  Icons.all_inclusive
+              ),
+              onTap: () {
+                // Handle item 1 tap
+                Navigator.push(context, MaterialPageRoute(builder: (Context) => MeditationPage()),);
+              },
+            ),
+            ListTile(
+              title: Text('About Us'),
+              leading: Icon(
+                  Icons.boy_outlined
+              ),
+              onTap: () {
+                // Handle item 1 tap
+                Navigator.push(context, MaterialPageRoute(builder: (Context) => GuidedMeditation()),);
+              },
+            ),
+            ListTile(
+              title: Text('Help and Support'),
+              leading: Icon(
+                  Icons.help_outline
+              ),
+              onTap: () {
+                // Handle item 1 tap
+                Navigator.push(context, MaterialPageRoute(builder: (Context) => HelpAndSupport()),);
+              },
+            ),
+            ListTile(
+              title: Text('Log Out'),
+              leading: Icon(
+                  Icons.logout
+              ),
+              onTap: () {
+                // Handle item 1 tap
+                Navigator.push(context, MaterialPageRoute(builder: (Context) => GuidedMeditation()),);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Stack(
         children: [
           Positioned(
@@ -36,11 +128,7 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
             left: 0,
             child: svgImageTop(),
           ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: svgImageBottom()
-          ),
+          Positioned(bottom: 0, right: 0, child: svgImageBottom()),
           Column(
             children: [
               const SizedBox(height: 45),
@@ -69,7 +157,8 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const MyProfile()),
+                          MaterialPageRoute(
+                              builder: (context) => const MyProfile()),
                         );
                       },
                       child: Container(
@@ -86,7 +175,8 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
                         ),
                         child: const CircleAvatar(
                           radius: 15,
-                          backgroundImage: AssetImage('assets/images/avatar.jpg'),
+                          backgroundImage:
+                              AssetImage('assets/images/avatar.jpg'),
                         ),
                       ),
                     ),
@@ -127,7 +217,8 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
                 child: TabBarView(
                   controller: tabController,
                   children: [
-                    const Text('App lock data '), // TODO: Contents for App lock tab
+                    const Text(
+                        'App lock data '), // TODO: Contents for App lock tab
                     Card(
                       elevation: 5,
                       shadowColor: Colors.black,
