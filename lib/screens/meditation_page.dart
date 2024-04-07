@@ -86,7 +86,20 @@ class _MeditationPageState extends State<MeditationPage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 15),
                   child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      // Icon(IconButton(icon: ,))Todo: icon button
+                      // Builder(
+                      //   builder: (newContext) {
+                      //     return IconButton(
+                      //       icon: const Icon(Icons.arrow_back),
+                      //       onPressed: () {
+                      //         Navigator.pop(context);
+                      //       },
+                      //     );
+                      //   },
+                      // ),
+                      // const SizedBox(width: 10),
                       const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

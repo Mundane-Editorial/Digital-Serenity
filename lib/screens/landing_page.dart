@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:add_image_in_app/screens/guided_medatation.dart';
+import 'package:add_image_in_app/screens/about_us.dart';
 import 'package:add_image_in_app/screens/help_and_support.dart';
 import 'package:add_image_in_app/screens/meditation_page.dart';
 import 'package:add_image_in_app/screens/my_profile.dart';
@@ -95,7 +95,7 @@ class _LandingPageState extends State<LandingPage>
               ),
               onTap: () {
                 // Handle item 1 tap
-                Navigator.push(context, MaterialPageRoute(builder: (Context) => GuidedMeditation()),);
+                Navigator.push(context, MaterialPageRoute(builder: (Context) => AboutUs()),);
               },
             ),
             ListTile(
@@ -115,7 +115,7 @@ class _LandingPageState extends State<LandingPage>
               ),
               onTap: () {
                 // Handle item 1 tap
-                Navigator.push(context, MaterialPageRoute(builder: (Context) => GuidedMeditation()),);
+                Navigator.push(context, MaterialPageRoute(builder: (Context) => AboutUs()),);
               },
             ),
           ],
@@ -217,8 +217,44 @@ class _LandingPageState extends State<LandingPage>
                 child: TabBarView(
                   controller: tabController,
                   children: [
-                    const Text(
-                        'App lock data '), // TODO: Contents for App lock tab
+                    Card(
+                      elevation: 5,
+                      shadowColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color.fromRGBO(255, 255, 255, 1),
+                              Color.fromRGBO(218, 233, 240, 0.85),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Center(
+                                child: Text(
+                                  'App Lock',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              // TODO: Add graphs or other content here
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),// TODO: Contents for App lock tab
                     Card(
                       elevation: 5,
                       shadowColor: Colors.black,
@@ -257,7 +293,44 @@ class _LandingPageState extends State<LandingPage>
                         ),
                       ),
                     ),
-                    const Text("hola"),
+                    Card(
+                      elevation: 5,
+                      shadowColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color.fromRGBO(255, 255, 255, 1),
+                              Color.fromRGBO(218, 233, 240, 0.85),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Center(
+                                child: Text(
+                                  'Time Spent',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              // TODO: Add graphs or other content here
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
