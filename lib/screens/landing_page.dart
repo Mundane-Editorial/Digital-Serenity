@@ -5,7 +5,9 @@ import 'package:add_image_in_app/screens/help_and_support.dart';
 import 'package:add_image_in_app/screens/meditation_page.dart';
 import 'package:add_image_in_app/screens/my_profile.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class LandingPage extends StatefulWidget {
@@ -21,7 +23,7 @@ class _LandingPageState extends State<LandingPage>
 
   @override
   void initState() {
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 3, vsync: this, initialIndex: 1);
     super.initState();
   }
 
@@ -31,8 +33,10 @@ class _LandingPageState extends State<LandingPage>
   }
 
   Scaffold buildBody(BuildContext context) {
+    String formattedDate = DateFormat('MMMM dd, yyyy').format(DateTime.now());
     return Scaffold(
-      drawer: Drawer(       //TODO : my Profile , About us, Focus mode, Feedback and Support, Guided meditation etc
+      drawer: Drawer(
+        //TODO : my Profile , About us, Focus mode, Feedback and Support, Guided meditation etc
         shadowColor: Colors.grey,
         elevation: 3,
         child: ListView(
@@ -51,7 +55,7 @@ class _LandingPageState extends State<LandingPage>
                 ),
               ),
               child: Text(
-                'Drawer Header',
+                'Digital Serenity',
                 style: TextStyle(
                   color: Colors.lightBlueAccent,
                   fontSize: 24,
@@ -60,62 +64,68 @@ class _LandingPageState extends State<LandingPage>
             ),
             ListTile(
               title: Text('Home'),
-             leading: Icon(
-               Icons.home
-             ),
+              leading: Icon(Icons.home),
               onTap: () {
                 // Handle item 1 tap
-                Navigator.push(context, MaterialPageRoute(builder: (Context) => LandingPage()),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (Context) => LandingPage()),
+                );
               },
             ),
             ListTile(
-
-              leading: Icon(Icons.account_circle
-              ),
+              leading: Icon(Icons.account_circle),
               title: Text('My Profile'),
               onTap: () {
                 // Handle item 1 tap
-                Navigator.push(context, MaterialPageRoute(builder: (Context) => MyProfile()),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (Context) => MyProfile()),
+                );
               },
             ),
             ListTile(
               title: Text('Meditation'),
-              leading: Icon(
-                  Icons.all_inclusive
-              ),
+              leading: Icon(Icons.all_inclusive),
               onTap: () {
                 // Handle item 1 tap
-                Navigator.push(context, MaterialPageRoute(builder: (Context) => MeditationPage()),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (Context) => MeditationPage()),
+                );
               },
             ),
             ListTile(
               title: Text('About Us'),
-              leading: Icon(
-                  Icons.boy_outlined
-              ),
+              leading: Icon(Icons.boy_outlined),
               onTap: () {
                 // Handle item 1 tap
-                Navigator.push(context, MaterialPageRoute(builder: (Context) => AboutUs()),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (Context) => AboutUs()),
+                );
               },
             ),
             ListTile(
               title: Text('Help and Support'),
-              leading: Icon(
-                  Icons.help_outline
-              ),
+              leading: Icon(Icons.help_outline),
               onTap: () {
                 // Handle item 1 tap
-                Navigator.push(context, MaterialPageRoute(builder: (Context) => HelpAndSupport()),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (Context) => HelpAndSupport()),
+                );
               },
             ),
             ListTile(
               title: Text('Log Out'),
-              leading: Icon(
-                  Icons.logout
-              ),
+              leading: Icon(Icons.logout),
               onTap: () {
                 // Handle item 1 tap
-                Navigator.push(context, MaterialPageRoute(builder: (Context) => AboutUs()),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (Context) => AboutUs()),
+                );
               },
             ),
           ],
@@ -254,7 +264,7 @@ class _LandingPageState extends State<LandingPage>
                           ),
                         ),
                       ),
-                    ),// TODO: Contents for App lock tab
+                    ), // TODO: Contents for App lock tab
                     Card(
                       elevation: 5,
                       shadowColor: Colors.black,
@@ -273,26 +283,33 @@ class _LandingPageState extends State<LandingPage>
                             end: Alignment.bottomCenter,
                           ),
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Center(
-                                child: Text(
-                                  'Summary',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: SizedBox(
+                                width: 360,
+                                height: 150,
+                                child: Image.asset(
+                                  'assets/images/img.png',
+                                  fit: BoxFit.contain,
                                 ),
                               ),
-                              // TODO: Add graphs or other content here
-                            ],
-                          ),
+                            ),
+                            Text(
+                              formattedDate,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
+
                     Card(
                       elevation: 5,
                       shadowColor: Colors.black,
@@ -335,6 +352,11 @@ class _LandingPageState extends State<LandingPage>
                 ),
               ),
               const SizedBox(height: 10),
+              Divider(
+                indent: 10,
+                endIndent: 10,
+                thickness: 1,
+              ),
               Row(
                 children: [
                   const SizedBox(width: 10),
@@ -351,22 +373,272 @@ class _LandingPageState extends State<LandingPage>
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 40,
-                            color: Colors.red,
-                          ),
-                          // Add more widgets here as needed
-                        ],
-                      ),
-                    ),
-                  ),
+                  const SizedBox(height: 30),
                 ],
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 10.0),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Container 1
+                      Container(
+                        padding: EdgeInsets.only(left: 10),
+                        height: 50,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 40,
+                              height: 40,
+                              child: SvgPicture.asset(
+                                'assets/images/instagram.svg',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(
+                                width:
+                                    15), // Add spacing between the SVG image and the text
+                            Container(
+                              width: 320,
+                              child: Row(
+                                children: [
+                                  Flexible(
+                                    // Wrap the "Instagram" text with Flexible
+                                    child: Text(
+                                      'Instagram',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  // Add spacing between the elements
+                                  const SizedBox(
+                                    width: 85,
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        '25',
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      Text(
+                                        'min',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(
+                        indent: 10,
+                        endIndent: 10,
+                        thickness: 1,
+                      ),
+
+                      // Container 2
+                      Container(
+                        padding: EdgeInsets.only(left: 10),
+                        height: 50,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 40,
+                              height: 40,
+                              child: SvgPicture.asset(
+                                'assets/images/facebook.svg',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(
+                                width:
+                                    15), // Add spacing between the SVG image and the text
+                            Container(
+                              width: 320,
+                              child: Row(
+                                children: [
+                                  Flexible(
+                                    // Wrap the "Instagram" text with Flexible
+                                    child: Text(
+                                      'Facebook',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  // Add spacing between the elements
+                                  const SizedBox(
+                                    width: 95,
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        '25',
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      Text(
+                                        'min',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Divider(
+                        indent: 10,
+                        endIndent: 10,
+                        thickness: 1,
+                      ),
+
+                      // Container 3
+                      Container(
+                        padding: EdgeInsets.only(left: 15),
+                        height: 50,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 35,
+                              height: 35,
+                              child: SvgPicture.asset(
+                                'assets/images/twitter.svg',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(
+                                width:
+                                    15), // Add spacing between the SVG image and the text
+                            Container(
+                              width: 320,
+                              child: Row(
+                                children: [
+                                  Flexible(
+                                    // Wrap the "Instagram" text with Flexible
+                                    child: Text(
+                                      'Twitter',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  // Add spacing between the elements
+                                  const SizedBox(
+                                    width: 145,
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        '25',
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      Text(
+                                        'min',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Divider(
+                        indent: 10,
+                        endIndent: 10,
+                        thickness: 1,
+                      ),
+
+                      // Container 4
+                      Container(
+                        padding: EdgeInsets.only(left: 10),
+                        height: 50,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 40,
+                              height: 40,
+                              child: SvgPicture.asset(
+                                'assets/images/whatsapp.svg',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(
+                                width:
+                                    15), // Add spacing between the SVG image and the text
+                            Container(
+                              width: 320,
+                              child: Row(
+                                children: [
+                                  Flexible(
+                                    // Wrap the "Instagram" text with Flexible
+                                    child: Text(
+                                      'Whatsapp',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  // Add spacing between the elements
+                                  const SizedBox(
+                                    width: 85,
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        '25',
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      Text(
+                                        'min',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

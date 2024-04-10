@@ -1,3 +1,4 @@
+import 'package:add_image_in_app/screens/landing_page.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -107,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                 CustomButton(
                   title: 'Login',
                   onTap: () {
-                    const Text("Login Pressed");
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const LandingPage()));
                   },
                 ),
                 const SizedBox(height: 20),

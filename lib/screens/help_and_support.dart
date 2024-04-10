@@ -1,4 +1,5 @@
 import 'package:add_image_in_app/screens/onboarding_page.dart';
+import 'package:add_image_in_app/screens/setting_page.dart';
 import 'package:flutter/material.dart';
 
 class HelpAndSupport extends StatefulWidget {
@@ -17,29 +18,56 @@ class _HelpAndSupportState extends State<HelpAndSupport> {
           Positioned(
             top: 0,
             left: 0,
-            child: svgImageTop(), // Replace with svgImageTop() if needed
+            child: svgImageTop(),
           ),
           Positioned(
             bottom: 0,
             right: 0,
-            child: svgImageBottom(), // Replace with svgImageBottom() if needed
+            child: svgImageBottom(),
           ),
+          //todo :: helo and support page
           Column(
             children: [
-              SizedBox(height: 45),
+              const SizedBox(height: 45),
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: 50,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.transparent,
                   // border: Border.all(color: Colors.black),
                 ),
-                child: IconButton(
-                  color: Colors.black,
-                  icon: Icon(Icons.arrow_back),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
+                child: Row(
+                  children: [
+                    const SizedBox(width: 10),
+                    Builder(
+                      builder: (newContext) {
+                        return IconButton(
+                          color: Colors.black,
+                          icon: const Icon(Icons.arrow_back),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        );
+                      },
+                    ),
+                    const Spacer(),
+                    Builder(
+                      builder: (newContext) {
+                        return IconButton(
+                          color: Colors.black,
+                          icon: const Icon(Icons.settings),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Setting_Page(),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
             ],
