@@ -6,6 +6,7 @@ import 'package:add_image_in_app/screens/onboarding_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -28,7 +29,7 @@ class _AboutUsState extends State<AboutUs> {
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(25.r),
                 gradient: const LinearGradient(
                   colors: [
                     Color.fromRGBO(255, 255, 255, 1),
@@ -120,16 +121,16 @@ class _AboutUsState extends State<AboutUs> {
           ),
           Column(
             children: [
-              const SizedBox(height: 45),
+              SizedBox(height: 45.h),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 50,
+                height: 50.h,
                 decoration: const BoxDecoration(
                   color: Colors.transparent,
                 ),
                 child: Row(
                   children: [
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10.w),
                     Builder(
                       builder: (newContext) {
                         return IconButton(
@@ -161,38 +162,38 @@ class _AboutUsState extends State<AboutUs> {
                             ),
                           ],
                         ),
-                        child: const CircleAvatar(
-                          radius: 15,
+                        child: CircleAvatar(
+                          radius: 15.r,
                           backgroundImage: AssetImage('assets/images/avatar.jpg'),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 20),
+                    SizedBox(width: 20.w),
                   ],
                 ),
               ),
-              const SizedBox(height: 0,),
+               SizedBox(height: 0.h),
               Expanded( // Wrap with Expanded to fix horizontal scrolling issue
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      const SizedBox(height: 10,),
+                      SizedBox(height: 10.h),
                       const Divider(
                         color: Colors.grey,
                         endIndent: 10,
                         indent: 10,
                         thickness: 1,
                       ),
-                      const SizedBox(height: 10,),
+                      SizedBox(height: 10.h),
                       Container(
                         padding: const EdgeInsets.only(left: 15, right: 15),
-                        child: const Column(
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Welcome to Digital Serenity!",
+                              "Welcome to Digital Serenity! - Uday Kumar Rana",
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

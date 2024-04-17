@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
 import 'package:add_image_in_app/screens/landing_page.dart';
@@ -63,18 +64,18 @@ class _SignupPageState extends State<SignupPage> {
                 children: <Widget>[
                   Image.asset(
                     'assets/images/logo.png',
-                    width: 150,
-                    height: 150,
+                    width: 150.w,
+                    height: 150.h,
                   ),
-                  const SizedBox(height: 10),
-                  const Text(
+                  SizedBox(height: 10.h),
+                  Text(
                     'Digital Serenity',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w200,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   const Padding(
                     padding: EdgeInsets.only(left: 60),
                     child: Align(
@@ -82,41 +83,41 @@ class _SignupPageState extends State<SignupPage> {
                       child: Text('Create Account'),
                     ),
                   ),
-                  const SizedBox(height: 5),
+                  SizedBox(height: 5.h),
                   SizedBox(
                     width: 300,
                     height: 50,
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Email/Username',
-                        hintStyle: const TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w300),
+                        hintStyle: TextStyle(
+                            fontSize: 15.sp, fontWeight: FontWeight.w300),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(15.r),
                         ),
                         filled: true,
                         fillColor: const Color.fromRGBO(250, 250, 250, 0.25),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                   SizedBox(height: 20.h),
                   Container(
-                    width: 300,
-                    height: 50,
+                    width: 300.w,
+                    height: 50.h,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: Colors.black,
                       ),
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(15.r),
                     ),
                     child: TextFormField(
                       obscureText: true,
                       controller: _passwordController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(left: 10),
                         hintText: 'Password',
-                        hintStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                        hintStyle: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w300),
                         focusedBorder: InputBorder.none,
                         border: InputBorder.none,
                       ),
@@ -131,7 +132,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   _isPasswordValid ? const Text('') : const Text('Password too short',
                   style: TextStyle(color: CupertinoColors.destructiveRed),),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   CustomButton(
                     title: 'Sign Up',
                     onTap: () {
@@ -142,14 +143,14 @@ class _SignupPageState extends State<SignupPage> {
                       );
                     },
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   const Divider(
                     thickness: 1.5,
                     indent: 60,
                     endIndent: 60,
                     color: Color.fromRGBO(83, 123, 143, 1.0),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Padding(
                     padding: const EdgeInsets.only(
                         right: 20), // Adjust right padding as needed
@@ -162,8 +163,8 @@ class _SignupPageState extends State<SignupPage> {
                             // Handle onTap for the first item
                           },
                           child: Container(
-                            height: 50,
-                            width: 50,
+                            height: 50.h,
+                            width: 50.w,
                             decoration: const BoxDecoration(
                               // color: Colors.lightBlue,
                               shape: BoxShape.circle,
@@ -171,21 +172,21 @@ class _SignupPageState extends State<SignupPage> {
                             child: Center(
                               child: SvgPicture.asset(
                                 'assets/images/google.svg',
-                                width: 50,
-                                height: 50,
+                                width: 50.w,
+                                height: 50.h,
                               ),
                             ),
                           ),
                         ),
-                        const SizedBox(width: 20), // Add spacing between items
+                        SizedBox(width: 20.w), // Add spacing between items
                         InkWell(
                           onTap: () {
                             print('2 tapped');
                             // Handle onTap for the second item
                           },
                           child: Container(
-                            height: 50,
-                            width: 50,
+                            height: 50.h,
+                            width: 50.w,
                             decoration: const BoxDecoration(
                               // color: Colors.lightBlue,
                               shape: BoxShape.circle,
@@ -193,21 +194,21 @@ class _SignupPageState extends State<SignupPage> {
                             child: Center(
                               child: SvgPicture.asset(
                                 'assets/images/facebook.svg',
-                                width: 50,
-                                height: 50,
+                                width: 50.w,
+                                height: 50.h,
                               ),
                             ),
                           ),
                         ),
-                        const SizedBox(width: 20), // Add spacing between items
+                         SizedBox(width: 20.w), // Add spacing between items
                         InkWell(
                           onTap: () {
                             print('3 tapped');
                             // Handle onTap for the third item
                           },
                           child: Container(
-                            height: 50,
-                            width: 50,
+                            height: 50.h,
+                            width: 50.w,
                             decoration: const BoxDecoration(
                               // color: Colors.lightBlue,
                               shape: BoxShape.circle,
@@ -215,8 +216,8 @@ class _SignupPageState extends State<SignupPage> {
                             child: Center(
                               child: SvgPicture.asset(
                                 'assets/images/twitter.svg',
-                                width: 40,
-                                height: 40,
+                                width: 40.w,
+                                height: 40.h,
                               ),
                             ),
                           ),

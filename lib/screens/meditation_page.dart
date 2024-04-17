@@ -5,6 +5,7 @@ import 'package:add_image_in_app/screens/onboarding_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MeditationPage extends StatefulWidget {
   const MeditationPage({super.key});
@@ -100,18 +101,18 @@ class _MeditationPageState extends State<MeditationPage> {
                       //   },
                       // ),
                       // const SizedBox(width: 10),
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Hello",
                             style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 25.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(height: 1),
+                          SizedBox(height: 1.h),
                           Text("Meditate and relax!"),
                         ],
                       ),
@@ -136,8 +137,8 @@ class _MeditationPageState extends State<MeditationPage> {
                               ),
                             ],
                           ),
-                          child: const CircleAvatar(
-                            radius: 15,
+                          child:  CircleAvatar(
+                            radius: 15.r,
                             backgroundImage:
                                 AssetImage('assets/images/avatar.jpg'),
                           ),
@@ -146,24 +147,24 @@ class _MeditationPageState extends State<MeditationPage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 5),
-                const Padding(
+                SizedBox(height: 5.h),
+                Padding(
                   padding: EdgeInsets.only(left: 8.0),
                   child: Text(
                     "Recommended",
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w700),
                   ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 Stack(
                   children: [
                     Container(
-                      height: 160,
+                      height: 160.h,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.8),
@@ -190,24 +191,24 @@ class _MeditationPageState extends State<MeditationPage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
+                                Text(
                                   "Daily 10 minutes meditation",
                                   style: TextStyle(
-                                      fontSize: 22,
+                                      fontSize: 22.sp,
                                       color: Colors.blue,
                                       fontWeight: FontWeight.w400),
                                 ),
-                                const SizedBox(height: 10),
-                                const Text(
+                                SizedBox(height: 10.h),
+                                Text(
                                   "10 Episodes",
                                   style: TextStyle(color: Colors.black54),
                                 ),
-                                const SizedBox(height: 10),
+                                SizedBox(height: 10.h),
                                 SizedBox(
-                                  height: 40,
+                                  height: 40.h,
                                   child: FloatingActionButton.extended(
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25.0),
+                                      borderRadius: BorderRadius.circular(25.0.r),
                                     ),
                                     onPressed: () {
                                       _togglePlayPause1();
@@ -225,7 +226,7 @@ class _MeditationPageState extends State<MeditationPage> {
                             child: Image.asset(
                               'assets/images/Yogawomen.png',
                               fit: BoxFit.cover,
-                              height: 140,
+                              height: 140.h,
                             ),
                           )
                         ],
@@ -233,28 +234,28 @@ class _MeditationPageState extends State<MeditationPage> {
                     )
                   ],
                 ),
-                const SizedBox(height: 15),
-                const Padding(
+                 SizedBox(height: 15.h),
+                Padding(
                   padding: EdgeInsets.only(left: 8.0),
                   child: Text(
                     "Continue",
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         color: Colors.black87,
                         fontWeight: FontWeight.w800),
                   ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0),
                       child: Container(
-                        width: 40,
-                        height: 40,
+                        width: 40.w,
+                        height: 40.h,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(5.r),
                           color: Colors.white,
                           boxShadow: [
                             const BoxShadow(
@@ -268,20 +269,20 @@ class _MeditationPageState extends State<MeditationPage> {
                         child: Image.asset('assets/images/lotus.png'),
                       ),
                     ),
-                    const SizedBox(width: 10),
-                    const Column(
+                    SizedBox(width: 10.w),
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Stress Release",
                           style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.w500),
                         ),
                         Text(
                           "10 Minutes",
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10.sp),
                         ),
                       ],
                     ),
@@ -305,26 +306,26 @@ class _MeditationPageState extends State<MeditationPage> {
 
                   ],
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 const Divider(
                   color: Colors.black38,
                   indent: 10,
                   endIndent: 10,
                 ),
-                const SizedBox(height: 4),
-                const Padding(
+                SizedBox(height: 4.h),
+                 Padding(
                   padding: EdgeInsets.only(left: 8.0),
                   child: Text(
                     "Activities",
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         color: Colors.black87,
                         fontWeight: FontWeight.w800),
                   ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 Container(
-                  height: 200,
+                  height: 200.h,
                   padding: const EdgeInsets.only(
                     bottom: 2.0,
                     top: 5,
@@ -333,9 +334,9 @@ class _MeditationPageState extends State<MeditationPage> {
                     scrollDirection: Axis.horizontal,
                     children: [
                       Container(
-                        width: 140,
+                        width: 140.w,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(15.r),
                           boxShadow: [
                             const BoxShadow(
                               color: Colors.grey,
@@ -350,15 +351,15 @@ class _MeditationPageState extends State<MeditationPage> {
                           padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
-                              const Text(
+                               Text(
                                 "Focus",
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 18.sp,
                                     color: Colors.white,
                                     fontWeight: FontWeight.w800),
                               ),
-                              const SizedBox(
-                                height: 8,
+                              SizedBox(
+                                height: 8.h,
                               ),
                               Expanded(
                                   child: Image.asset("assets/images/focus.png"))
@@ -366,13 +367,13 @@ class _MeditationPageState extends State<MeditationPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        width: 7,
+                      SizedBox(
+                        width: 7.w,
                       ),
                       Container(
-                        width: 140,
+                        width: 140.w,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(15.r),
                           boxShadow: [
                             const BoxShadow(
                               color: Colors.grey,
@@ -387,15 +388,15 @@ class _MeditationPageState extends State<MeditationPage> {
                           padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
-                              const Text(
+                              Text(
                                 "Relaxing",
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 18.sp,
                                     color: Colors.white,
                                     fontWeight: FontWeight.w800),
                               ),
-                              const SizedBox(
-                                height: 40,
+                              SizedBox(
+                                height: 40.h,
                               ),
                               Expanded(
                                   child: Image.asset("assets/images/relax.png"))
@@ -403,13 +404,13 @@ class _MeditationPageState extends State<MeditationPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        width: 7,
+                      SizedBox(
+                        width: 7.w,
                       ),
                       Container(
-                        width: 140,
+                        width: 140.w,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(15.r),
                           boxShadow: [
                             const BoxShadow(
                               color: Colors.grey,
@@ -424,15 +425,15 @@ class _MeditationPageState extends State<MeditationPage> {
                           padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
-                              const Text(
+                               Text(
                                 "Healing",
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 18.sp,
                                     color: Colors.white,
                                     fontWeight: FontWeight.w800),
                               ),
-                              const SizedBox(
-                                height: 28,
+                               SizedBox(
+                                height: 28.h,
                               ),
                               Expanded(
                                   child:
@@ -444,24 +445,24 @@ class _MeditationPageState extends State<MeditationPage> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 8,
+                SizedBox(
+                  height: 8.h,
                 ),
                 const Divider(
                   color: Colors.black38,
                   indent: 10,
                   endIndent: 10,
                 ),
-                const SizedBox(
-                  height: 4,
+                 SizedBox(
+                  height: 4.h,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    height: 120,
-                    width: 300,
+                    height: 120.h,
+                    width: 300.w,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
+                      borderRadius: BorderRadius.circular(25.r),
                       color: Colors.white,
                       boxShadow: const [
                         BoxShadow(
@@ -483,11 +484,11 @@ class _MeditationPageState extends State<MeditationPage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 17.0),
                           child: Container(
-                            width: 90,
-                            height: 90,
+                            width: 90.w,
+                            height: 90.h,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(15),
+                              borderRadius: BorderRadius.circular(15.r),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey.withOpacity(0.8),
@@ -498,7 +499,7 @@ class _MeditationPageState extends State<MeditationPage> {
                               ],
                             ),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
+                              borderRadius: BorderRadius.circular(15.r),
                               child: Image.asset(
                                 'assets/images/thumbnail.png',
                                 fit: BoxFit.cover,
@@ -506,8 +507,8 @@ class _MeditationPageState extends State<MeditationPage> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          width: 20,
+                        SizedBox(
+                          width: 20.w,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 15.0),
@@ -516,19 +517,19 @@ class _MeditationPageState extends State<MeditationPage> {
                             children: [
                               Container(
                                 alignment: Alignment.centerLeft,
-                                child: const Text(
+                                child: Text(
                                   'Canon D',
                                   style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 18.sp,
                                       fontWeight: FontWeight.w500),
                                 ),
                               ),
                               Container(
                                 alignment: Alignment.centerLeft,
                                 // Align text to the left
-                                child: const Text(
+                                child: Text(
                                   'Pachelbel Canon In D Major',
-                                  style: TextStyle(fontSize: 10),
+                                  style: TextStyle(fontSize: 10.sp),
                                 ),
                               ),
                               //TODO: Slider

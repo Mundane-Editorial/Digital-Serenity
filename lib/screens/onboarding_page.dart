@@ -1,6 +1,7 @@
 import 'package:add_image_in_app/screens/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,23 +28,23 @@ class OnboardingPage extends StatelessWidget {
               children: [
                 SizedBox(height: MediaQuery.of(context).viewPadding.top + 200),
                 SizedBox(
-                  height: 250,
-                  width: 250,
+                  height: 250.h,
+                  width: 250.w,
                   child: Image.asset('assets/images/logo.png'),
                 ),
-                const SizedBox(height: 20),
-                const Text(
+                 SizedBox(height: 20.h),
+                Text(
                   'Digital Serenity',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 55),
+                SizedBox(height: 55.h),
                 CustomButton(
                     title: 'Continue',
                     onTap: () {
                       Navigator.push(
                         context,
                         CupertinoPageRoute(
-                          builder: (_) => const HomePage(),
+                          builder: (_) => const LoginPage(),
                         ),
                       );
                     }),
@@ -77,11 +78,11 @@ class CustomButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: height ?? 50,
+        height: height ?? 50.h,
         width: width ?? MediaQuery.of(context).size.width * 0.45,
         decoration: BoxDecoration(
           color: const Color.fromRGBO(4, 35, 53, 1.0),
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(15.r),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.5),
@@ -95,7 +96,7 @@ class CustomButton extends StatelessWidget {
             title,
             style: GoogleFonts.robotoCondensed(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 20.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -107,8 +108,8 @@ class CustomButton extends StatelessWidget {
 
 Widget svgImageTop() {
   return SizedBox(
-    height: 250,
-    width: 250,
+    height: 210.h,
+    width: 210.w,
     child: SvgPicture.asset(
       'assets/images/Background.svg',
       fit: BoxFit.cover,
@@ -118,8 +119,8 @@ Widget svgImageTop() {
 
 Widget svgImageBottom(){
   return SizedBox(
-    height: 250,
-    width: 250,
+    height: 250.h,
+    width: 250.w,
     child: Transform.rotate(
       angle: 3.14,
       child: SvgPicture.asset(

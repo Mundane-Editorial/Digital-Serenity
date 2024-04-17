@@ -1,6 +1,7 @@
 import 'package:add_image_in_app/screens/onboarding_page.dart';
 import 'package:add_image_in_app/screens/setting_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HelpAndSupport extends StatefulWidget {
   const HelpAndSupport({Key? key}) : super(key: key);
@@ -28,17 +29,17 @@ class _HelpAndSupportState extends State<HelpAndSupport> {
           //todo :: helo and support page
           Column(
             children: [
-              const SizedBox(height: 45),
+              SizedBox(height: 45.h),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 50,
+                height: 50.h,
                 decoration: const BoxDecoration(
                   color: Colors.transparent,
                   // border: Border.all(color: Colors.black),
                 ),
                 child: Row(
                   children: [
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10.w),
                     Builder(
                       builder: (newContext) {
                         return IconButton(

@@ -1,19 +1,20 @@
 import 'package:add_image_in_app/screens/landing_page.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'signup_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController _username = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
@@ -25,29 +26,12 @@ class _HomePageState extends State<HomePage> {
           Positioned(
             top: 0,
             left: 0,
-            child: SizedBox(
-              height: 250,
-              width: 250,
-              child: SvgPicture.asset(
-                'assets/images/Background.svg',
-                fit: BoxFit.cover,
-              ),
-            ),
+            child: svgImageTop()
           ),
           Positioned(
             bottom: 0,
             right: 0,
-            child: SizedBox(
-              height: 250,
-              width: 250,
-              child: Transform.rotate(
-                angle: 3.14,
-                child: SvgPicture.asset(
-                  'assets/images/Background.svg',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            child: svgImageBottom(),
           ),
           Center(
             child: Column(
@@ -57,28 +41,28 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   child: Image.asset(
                     'assets/images/logo.png',
-                    width: 150,
-                    height: 150,
+                    width: 150.w,
+                    height: 150.h,
                   ),
                 ),
-                const SizedBox(height: 10),
-                const Text(
+                SizedBox(height: 10.h),
+                Text(
                   'Digital Serenity',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
+                  style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w300),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: 40.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: SizedBox(
-                    width: 300, // Adjust width as needed
-                    height: 50, // Adjust height as needed
+                    width: 300.w,
+                    height: 50.h,
                     child: TextField(
                       controller: _username,
                       decoration: InputDecoration(
                         hintText: 'Username',
                         hintStyle: const TextStyle(fontWeight: FontWeight.w300),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(15.r),
                         ),
                         filled: true,
                         fillColor: const Color.fromRGBO(250, 250, 250, 0.25),
@@ -86,10 +70,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 15),
+                SizedBox(height: 15.h),
                 SizedBox(
-                  width: 300,
-                  height: 50,
+                  width: 300.w,
+                  height: 50.h,
                   child: TextField(
                     controller: _password,
                     obscureText: true,
@@ -97,25 +81,25 @@ class _HomePageState extends State<HomePage> {
                       hintText: 'Password',
                       hintStyle: const TextStyle(fontWeight: FontWeight.w300),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(15.r),
                       ),
                       filled: true,
                       fillColor: const Color.fromRGBO(250, 250, 250, 0.25),
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 CustomButton(
                   title: 'Login',
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const LandingPage()));
                   },
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Text(
                   "New Here ?",
                   style: GoogleFonts.poppins(
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -131,10 +115,10 @@ class _HomePageState extends State<HomePage> {
                             builder: (context) => const SignupPage()),
                       );
                     },
-                    child: const Text(
+                    child:  Text(
                       "Sign Up",
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 20.sp,
                           decoration: TextDecoration.underline,
                           color: Colors.blue,
                           fontWeight: FontWeight.w500),
