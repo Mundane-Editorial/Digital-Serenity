@@ -140,7 +140,7 @@ class _MeditationPageState extends State<MeditationPage> {
                           child:  CircleAvatar(
                             radius: 15.r,
                             backgroundImage:
-                                AssetImage('assets/images/avatar.jpg'),
+                                AssetImage('assets/images/avatar.png'),
                           ),
                         ),
                       ),
