@@ -1,10 +1,12 @@
 import 'package:add_image_in_app/screens/landing_page.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'forgot_password.dart';
 import 'signup_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,6 +19,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _username = TextEditingController();
   final TextEditingController _password = TextEditingController();
+
+  login()async{
+    await FirebaseAuth.instance.signInWithEmailAndPassword(email: _username.text, password: _password.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,11 +97,30 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 20.h),
                 CustomButton(
                   title: 'Login',
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const LandingPage()));
-                  },
+                  onTap: (()=>login()),
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 15.h),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => forgotPassword()));
+                  },
+                  child: Text("Forgot Password ?",
+                    style: TextStyle(
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15.h),
+                Divider(
+                  endIndent: 70,
+                  indent: 70,
+                  thickness: 1,
+                ),
+                SizedBox(height: 15.h),
                 Text(
                   "New Here ?",
                   style: GoogleFonts.poppins(

@@ -1,3 +1,4 @@
+import 'package:add_image_in_app/auth/wrapper.dart';
 import 'package:add_image_in_app/screens/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,10 +33,11 @@ class OnboardingPage extends StatelessWidget {
                   width: 250.w,
                   child: Image.asset('assets/images/logo.png'),
                 ),
-                 SizedBox(height: 20.h),
+                SizedBox(height: 20.h),
                 Text(
                   'Digital Serenity',
-                  style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                  style:
+                      TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 55.h),
                 CustomButton(
@@ -44,7 +46,7 @@ class OnboardingPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         CupertinoPageRoute(
-                          builder: (_) => const LoginPage(),
+                          builder: (_) => const Wrapper(),
                         ),
                       );
                     }),
@@ -117,7 +119,7 @@ Widget svgImageTop() {
   );
 }
 
-Widget svgImageBottom(){
+Widget svgImageBottom() {
   return SizedBox(
     height: 250.h,
     width: 250.w,

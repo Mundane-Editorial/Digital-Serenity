@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "318353239677",
+    "project_id": "digitalserenity-8b061",
+    "storage_bucket": "digitalserenity-8b061.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318353239677:android:17d5e2d299e24998180b14",
+        "android_client_info": {
+          "package_name": "com.example.digitalserenity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP-xPjA5DQNUKqll2BS47shO34CQXBTJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

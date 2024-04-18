@@ -1,9 +1,13 @@
+import 'package:add_image_in_app/auth/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
 import 'package:add_image_in_app/screens/landing_page.dart';
+import 'package:get/get.dart';
+import '../auth/wrapper.dart';
 import 'landing_page.dart';
 
 class SignupPage extends StatefulWidget {
@@ -15,8 +19,16 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+
+  signup()async{
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _nameController.text, password: _passwordController.text);
+    Get.offAll(Wrapper());
+  }
+
   final _formKey = GlobalKey<FormState>();
   bool _isPasswordValid = true;
+  // var authService = AuthService();
 
   @override
   void initState() {
@@ -88,6 +100,7 @@ class _SignupPageState extends State<SignupPage> {
                     width: 300,
                     height: 50,
                     child: TextField(
+                      controller: _nameController,
                       decoration: InputDecoration(
                         hintText: 'Email/Username',
                         hintStyle: TextStyle(
@@ -100,7 +113,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                     ),
                   ),
-                   SizedBox(height: 20.h),
+                  SizedBox(height: 20.h),
                   Container(
                     width: 300.w,
                     height: 50.h,
@@ -117,7 +130,8 @@ class _SignupPageState extends State<SignupPage> {
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(left: 10),
                         hintText: 'Password',
-                        hintStyle: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w300),
+                        hintStyle: TextStyle(
+                            fontSize: 15.sp, fontWeight: FontWeight.w300),
                         focusedBorder: InputBorder.none,
                         border: InputBorder.none,
                       ),
@@ -130,18 +144,17 @@ class _SignupPageState extends State<SignupPage> {
                       },
                     ),
                   ),
-                  _isPasswordValid ? const Text('') : const Text('Password too short',
-                  style: TextStyle(color: CupertinoColors.destructiveRed),),
+                  _isPasswordValid
+                      ? const Text('')
+                      : const Text(
+                          'Password too short',
+                          style:
+                              TextStyle(color: CupertinoColors.destructiveRed),
+                        ),
                   SizedBox(height: 20.h),
                   CustomButton(
                     title: 'Sign Up',
-                    onTap: () {
-                      // if (_formKey.currentState!.validate())
-                      const Text('Login pressed');
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => const LandingPage()),
-                      );
-                    },
+                    onTap: (()=>signup()),
                   ),
                   SizedBox(height: 20.h),
                   const Divider(
@@ -200,7 +213,7 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                           ),
                         ),
-                         SizedBox(width: 20.w), // Add spacing between items
+                        SizedBox(width: 20.w), // Add spacing between items
                         InkWell(
                           onTap: () {
                             print('3 tapped');
@@ -234,5 +247,3 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 }
-
-

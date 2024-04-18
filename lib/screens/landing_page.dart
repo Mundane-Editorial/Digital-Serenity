@@ -6,6 +6,7 @@ import 'package:add_image_in_app/screens/login_page.dart';
 import 'package:add_image_in_app/screens/meditation_page.dart';
 import 'package:add_image_in_app/screens/my_profile.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -28,6 +29,11 @@ class _LandingPageState extends State<LandingPage>
   void initState() {
     tabController = TabController(length: 3, vsync: this, initialIndex: 1);
     super.initState();
+  }
+
+  logout() async{
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context).pop();
   }
 
   @override
@@ -148,13 +154,7 @@ class _LandingPageState extends State<LandingPage>
                         ),
                       ),
                       TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginPage()),
-                          );
-                        },
+                        onPressed: (()=>logout()),
                         child: const Text(
                           "ok",
                           style: TextStyle(
