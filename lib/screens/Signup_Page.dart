@@ -2,6 +2,7 @@ import 'package:add_image_in_app/auth/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
@@ -37,6 +38,7 @@ class _SignupPageState extends State<SignupPage> {
     );
 
     await FirebaseAuth.instance.signInWithCredential(credential);
+    Navigator.of(context).pop();
   }
 
   final _formKey = GlobalKey<FormState>();
