@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:add_image_in_app/screens/onboarding_page.dart';
 import 'package:add_image_in_app/screens/landing_page.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../auth/wrapper.dart';
 import 'landing_page.dart';
 
@@ -24,6 +25,18 @@ class _SignupPageState extends State<SignupPage> {
   signup()async{
     await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _nameController.text, password: _passwordController.text);
     Get.offAll(Wrapper());
+  }
+
+  googlelogin() async{
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   final _formKey = GlobalKey<FormState>();
@@ -171,10 +184,7 @@ class _SignupPageState extends State<SignupPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         InkWell(
-                          onTap: () {
-                            print('1 tapped');
-                            // Handle onTap for the first item
-                          },
+                          onTap: (()=> googlelogin()),
                           child: Container(
                             height: 50.h,
                             width: 50.w,
