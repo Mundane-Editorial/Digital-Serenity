@@ -186,7 +186,6 @@ class _LandingPageState extends State<LandingPage>
                 height: 50.h,
                 decoration: const BoxDecoration(
                   color: Colors.transparent,
-                  // border: Border.all(color: Colors.black),
                 ),
                 child: Row(
                   children: [
